@@ -5,8 +5,8 @@ const projects = require('./projects');
 
 router.use('/services', services)
 router.use('/projects', projects)
-router.use('/timetable', (req, res) => res.send('timetable'))
-router.use('/contact', (req, res) => res.send('Contact'))
+router.use('/timetable', (req, res) => res.render('timetable'))
+router.use('/contact', (req, res) => res.render('contact'))
 router.use('/', (req, res) => res.render('home'))
 
 module.exports = router;
