@@ -1,9 +1,10 @@
 const express = require('express');
-
+const moment = require('moment')
 const router = express.Router();
 
-const mailjet = require('node-mailjet').connect(process.env.MJ_APIKEY_PUBLIC || '5d4f037839b841880c6f3c4532ee7655', process.env.MJ_APIKEY_PRIVATE || '56611f8b46be98dd0a5a280f72489bde')
+if (!process.env.MJ_APIKEY_PUBLIC) const mjKeys = require('../.config')
 
+const mailjet = require('node-mailjet').connect(process.env.MJ_APIKEY_PUBLIC || mjKeys.pub, process.env.MJ_APIKEY_PRIVATE || mjKeys.priv)
 const postMessage = (req, res) => {
     console.log(req.body);
 
@@ -13,19 +14,20 @@ const postMessage = (req, res) => {
             "Messages": [
                 {
                     "From": {
-                        "Email": `janeausten99@protonmail.com`,
-                        "Name": `${req.body.name}`
+                        "Email": `hnp@maildrop.cc`,
+                        "Name": `Website Contact`
                     },
                     "To": [
                         {
                             "Email": "uproot18@gmail.com",
-                            "Name": "Jane the writer"
+                            "Name": "HNP Rep"
                         }
                     ],
-                    "Subject": "Your email flight plan!",
-                    "TextPart": "Dear passenger, welcome to Mailjet! May the delivery force be with you!",
-                    "HTMLPart": "<h3>Dear passenger, welcome to Mailjet!</h3><br />May the delivery force be with" +
-                        " you!"
+                    "Subject": `Message from website at ${moment().format('MMMM Do YYYY, h:mm:ss a')}`,
+                    "TextPart": JSON.stringify(req.body.name),
+                    "HTMLPart": `<h3>${req.body.name}</h3>
+                    <h4>${req.body.email}${req.body.phone && ' - ' + req.body.phone}</h4>
+                    <p>${req.body.message}</p>`
                 }
             ]
         }))
