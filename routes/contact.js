@@ -3,12 +3,13 @@ const moment = require('moment')
 const router = express.Router();
 
 let mjKeys
-if (!process.env.MJ_APIKEY_PUBLIC) mjKeys = require('../.config')
+if (!process.env.MJ_APIKEY_PUBLIC) 
+    mjKeys = require('../.config').mailjetKeys
+
+console.log(mjKeys)
 
 const mailjet = require('node-mailjet').connect(process.env.MJ_APIKEY_PUBLIC || mjKeys.pub, process.env.MJ_APIKEY_PRIVATE || mjKeys.priv)
 const postMessage = (req, res) => {
-    console.log(req.body);
-
     const request = mailjet
         .post("send", {'version': 'v3.1'})
         .request(JSON.stringify({
@@ -32,9 +33,7 @@ const postMessage = (req, res) => {
                 }
             ]
         }))
-    request.then((result) => {
-        console.log(result.body)
-    }).then(() => res.status(200).render('contact')).catch((err) => {
+    request.then(() => res.status(200).render('contact')).catch((err) => {
         console.log(err)
     })
 
