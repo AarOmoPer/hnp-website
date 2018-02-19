@@ -2,7 +2,8 @@ const express = require('express');
 const moment = require('moment')
 const router = express.Router();
 
-if (!process.env.MJ_APIKEY_PUBLIC) const mjKeys = require('../.config')
+let mjKeys
+if (!process.env.MJ_APIKEY_PUBLIC) mjKeys = require('../.config')
 
 const mailjet = require('node-mailjet').connect(process.env.MJ_APIKEY_PUBLIC || mjKeys.pub, process.env.MJ_APIKEY_PRIVATE || mjKeys.priv)
 const postMessage = (req, res) => {
