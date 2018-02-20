@@ -6,8 +6,6 @@ let mjKeys
 if (!process.env.MJ_APIKEY_PUBLIC) 
     mjKeys = require('../.config').mailjetKeys
 
-console.log(mjKeys)
-
 const mailjet = require('node-mailjet').connect(process.env.MJ_APIKEY_PUBLIC || mjKeys.pub, process.env.MJ_APIKEY_PRIVATE || mjKeys.priv)
 const postMessage = (req, res) => {
     const request = mailjet
@@ -33,8 +31,20 @@ const postMessage = (req, res) => {
                 }
             ]
         }))
-    request.then(() => res.status(200).render('contact')).catch((err) => {
-        console.log(err)
+    request.then((mes) => {
+        // console.log(mes)
+        const message = {
+            main: 'Thank you for leaving a message.',
+            additional: "We'll get back to you as soon as possible."
+        }
+        res.status(200).render('mail', {message})
+    }).catch((err) => {
+        console.log(err);
+        const message = {
+            main: 'Unfortunately something went wrong.',
+            additional: "Please try again or contact us by other means"
+        }
+        res.status(500).render('mail', {message})
     })
 
 }
