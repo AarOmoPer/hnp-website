@@ -39,9 +39,9 @@ const services = {
         Our Coffee Bar and Dining Room are available during the Centre’s normal opening times.`,
     },
     allServices: [
-        [{title: "What's on", icon: 'question'}, {title: 'Room hire', icon: 'home'}, {title: 'I.T. facilities', icon: 'desktop'}],
-        [{title: "Advice for groups", icon: 'users'}, {title: 'Advice for individuals', icon: 'user'}, {title: 'Private function', icon: 'glass-martini'}],
-        [{title: "Catering", icon: 'utensils'}],
+        [{link:"/services/what's_on", title: "What's on", icon: 'question'}, {link:'/services/room_hire', title: 'Room hire', icon: 'home'}, {link:'/services/it_facilities', title: 'I.T. facilities', icon: 'desktop'}],
+        [{link:'/services/advice_for_groups', title: "Advice for groups", icon: 'users'}, {link:'/services/advice_and_information_for_local_people', title: 'Advice for individuals', icon: 'user'}, {link:'/services/private_functions', title: 'Private function', icon: 'glass-martini'}],
+        [{link:'/services/catering', title: "Catering", icon: 'utensils'}],
     ]
 }
 

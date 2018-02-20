@@ -101,7 +101,7 @@
                 <% services.map(group => {%>
                     <section class='tile is-ancestor'>
                         <section class='tile is-parent'>
-                            <section class='tile is-child box'>
+                            <a class='tile is-child box notification is-primary' href=<%= group[0].link%>>
                                 <section class='media'>
                                     <section class="media-left">
                                         <i class="fas fa-<%= group[0].icon%> is-size-3"></i>
@@ -110,11 +110,11 @@
                                         <span class='title is-size-3 has-text-weight-light'><%= group[0].title%></span>
                                     </section>
                                 </section>
-                            </section>
+                            </a>
                         </section>
                         <% if (group.length > 1) {%>
                         <section class='tile is-parent'>
-                            <section class='tile is-child box'>
+                            <a class='tile is-child box notification is-primary' href=<%= group[1].link%>>
                                 <section class='media'>
                                     <section class="media-left">
                                         <i class="fas fa-<%= group[1].icon%> is-size-3"></i>
@@ -123,12 +123,12 @@
                                         <span class='title is-size-3 has-text-weight-light'><%= group[1].title%></span>
                                     </section>
                                 </section>
-                            </section>
+                            </a>
                         </section>
                         <%}%>
                         <% if (group.length > 2) {%>                        
                         <section class='tile is-parent'>
-                            <section class='tile is-child box'>
+                            <a class='tile is-child box notification is-primary' href=<%= group[2].link%>>
                                 <section class='media'>
                                     <section class="media-left">
                                         <i class="fas fa-<%= group[2].icon%> is-size-3"></i>
@@ -137,7 +137,7 @@
                                         <span class='title is-size-3 has-text-weight-light'><%= group[2].title%></span>
                                     </section>
                                 </section>
-                            </section>
+                            </a>
                         </section>
                         <%}%>
                     </section>
