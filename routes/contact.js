@@ -32,7 +32,6 @@ const postMessage = (req, res) => {
             ]
         }))
     request.then((mes) => {
-        // console.log(mes)
         const message = {
             main: 'Thank you for leaving a message.',
             additional: "We'll get back to you as soon as possible."
