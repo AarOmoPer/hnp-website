@@ -3,11 +3,12 @@ const router = express.Router();
 const services = require('./services');
 const projects = require('./projects');
 const contact = require('./contact');
+const timetable = require('./timetable');
 
 router.use('/services', services)
 router.use('/projects', projects)
 router.use('/contact', contact)
-router.use('/timetable', (req, res) => res.render('timetable'))
+router.use('/timetable', timetable)
 router.use('/', (req, res) => res.render('home'))
 
 module.exports = router;
