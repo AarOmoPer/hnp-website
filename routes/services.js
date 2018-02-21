@@ -46,13 +46,14 @@ const services = {
 }
 
 
-router.use("/what's_on", (req, res) => res.status(200).render('serviceTemplate', {sender: 'service', service: services['whatsOn']}));
-router.use('/room_hire', (req, res) => res.status(200).render('serviceTemplate', {service: services['roomHire']}));
-router.use('/it_facilities', (req, res) => res.status(200).render('serviceTemplate', {service: services['itFacilities']}));
-router.use('/advice_for_groups', (req, res) => res.status(200).render('serviceTemplate', {service: services['adviceGroups']}));
-router.use('/advice_and_information_for_local_people', (req, res) => res.status(200).render('serviceTemplate', {service: services['advicePeople']}));
-router.use('/private_functions', (req, res) => res.status(200).render('serviceTemplate', {service: services['privateFunctions']}));
-router.use('/catering', (req, res) => res.status(200).render('serviceTemplate', {service: services['catering']}));
-router.use('/', (req, res) => res.status(200).render('services', {services: services.allServices}));
+router.use("/what's_on", (req, res) => res.status(200).render('temp', {sender: 'service', service: services.whatsOn}));
+router.use('/room_hire', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.roomHire}));
+router.use('/it_facilities', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.itFacilities}));
+router.use('/advice_for_groups', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.adviceGroups}));
+router.use('/advice_and_information_for_local_people', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.advicePeople}));
+router.use('/private_functions', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.privateFunctions}));
+router.use('/catering', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.catering}));
+
+router.use('/', (req, res) => res.status(200).render('temp', {sender: 'services', services: services.allServices}));
 
 module.exports = router;

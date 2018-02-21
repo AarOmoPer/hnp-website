@@ -36,19 +36,19 @@ const postMessage = (req, res) => {
             main: 'Thank you for leaving a message.',
             additional: "We'll get back to you as soon as possible."
         }
-        res.status(200).render('mail', {message})
+        res.status(200).render('temp', {sender: 'contactConfirm', message})
     }).catch((err) => {
         console.log(err);
         const message = {
             main: 'Unfortunately something went wrong.',
             additional: "Please try again or contact us by other means"
         }
-        res.status(500).render('mail', {message})
+        res.status(500).render('temp', {sender: 'contactConfirm', message})
     })
 
 }
 
-router.get('/', (req, res) => res.render('contact'))
+router.get('/', (req, res) => res.render('temp', {sender: 'contact'}))
 router.post('/', postMessage)
 
 module.exports = router;

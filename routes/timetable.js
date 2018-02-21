@@ -129,7 +129,7 @@ const timetable = [
     }
 ]
 
-router.use('/', (req, res) => res.status(200).render('timetable', {sender: 'timetable', timetable}))
+router.use('/', (req, res) => res.status(200).render('temp', {sender: 'timetable', timetable}))
 
 
 module.exports = router;
