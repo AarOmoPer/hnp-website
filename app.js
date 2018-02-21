@@ -5,9 +5,10 @@ const morgan = require('morgan');
 
 const app = express();
 
-app.set('view engine', 'ejs')
-app.use(morgan('dev'))
-app.use(bodyParser.urlencoded())
-app.use('/', router)
+app.set('view engine', 'ejs');
+app.use(morgan('dev'));
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded());
+app.use('/', router);
 
 module.exports = app;
