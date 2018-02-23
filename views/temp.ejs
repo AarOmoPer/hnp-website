@@ -147,15 +147,70 @@
                     <% }) %>
             </div>
         <% }%>
-        <% if (sender === 'service') {%>
+        <% if (sender === 'service' || sender === 'project') {%>
                 <div class="container">
                     <h1 class="title">
-                        <%= service.title%>
+                        <%= module.title%>
                     </h1>
                     <h2 class="">
-                        <%= service.content%>
+                        <%- module.content%>
                     </h2>
                 </div>
+        <% }%>
+
+        <% if (sender === 'projects') {%>
+            <div class="container">
+                    <% projects.map((group, i) => {%>
+                        <section class="columns">
+                            <section class="column">
+                                <a class="" href=<%= group[0].link%>>
+                                  <section class="card">
+                                    <div class="card-image">
+                                        <figure class="image is-4by3">
+                                        <img src="<%= group[0].img%>" alt="Placeholder image">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <section class="subtitle"><%= group[0].title%></section>
+                                    </div>
+                                  </section>
+                                </a>
+                            </section>
+                            <section class="column">
+                                <% if (group.length > 1) {%>
+                                    <a class="" href=<%= group[1].link%>>
+                                      <section class="card">
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                            <img src="<%= group[1].img%>" alt="Placeholder image">
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <section class="subtitle"><%= group[1].title%></section>
+                                        </div>
+                                      </section>
+                                    </a> 
+                                <% }%>
+                            </section>
+                            <section class="column">
+                                <% if (group.length > 2) {%>
+                                    <a class="" href=<%= group[2].link%>>
+                                      <section class='card'>
+                                        <div class="card-image">
+                                            <figure class="image is-4by3">
+                                            <img src="<%= group[2].img%>" alt="Placeholder image">
+                                            </figure>
+                                        </div>
+                                        <div class="card-content">
+                                            <section class="subtitle"><%= group[2].title%></section>
+                                        </div>
+                                      </section>
+                                    </a> 
+                                <% }%>
+                            </section>
+                        </section>
+                    <% }) %>
+            </div>
         <% }%>
 
         <% if (sender === 'timetable') {%>

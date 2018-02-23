@@ -8,17 +8,11 @@ const services = {
     },
     roomHire: {
         title: "Room Hire",
-        content: `Harpurhey Neighbourhood Centre offers a range of rooms for various activities. Our Coffee Bar and Dining Room are open to all Centre users and members of the public. We have other rooms which can be booked for use by community groups or other organisations. These range from small meeting rooms to our Hall which can hold over 100 people.
-        
-        Charges for rooms are on a sliding scale, with small unfunded groups paying the least and statutory agencies paying the most. New community groups may not be asked to pay for room use until they have managed to obtain funding.
-        
-        If you would like to book space at the Centre please get in touch.`,
+        content: `Harpurhey Neighbourhood Centre offers a range of rooms for various activities. Our Coffee Bar and Dining Room are open to all Centre users and members of the public. We have other rooms which can be booked for use by community groups or other organisations. These range from small meeting rooms to our Hall which can hold over 100 people.<br /><br />Charges for rooms are on a sliding scale, with small unfunded groups paying the least and statutory agencies paying the most. New community groups may not be asked to pay for room use until they have managed to obtain funding.<br /><br />If you would like to book space at the Centre please get in touch.`,
     },
     itFacilities: {
         title: "I.T. Facilities",
-        content: `At HNP we have a fully equipped IT suite and a variety of equipment including computers with internet access, scanners, printers and digital cameras. This is available for use by local people and community groups. We can also offer basic help with using this equipment. Regular drop-in sessions are held when people can use the equipment with help on hand or arrangements can be made to use the equipment at a time to suit your group.
-        
-        Computers can be used for any reason whether you would like to look up something on the internet, practice your computer skills or produce publcity for your community group.<br />Please get in touch with us if you would like more information.`,
+        content: `At HNP we have a fully equipped IT suite and a variety of equipment including computers with internet access, scanners, printers and digital cameras. This is available for use by local people and community groups. We can also offer basic help with using this equipment. Regular drop-in sessions are held when people can use the equipment with help on hand or arrangements can be made to use the equipment at a time to suit your group.<br /><br />Computers can be used for any reason whether you would like to look up something on the internet, practice your computer skills or produce publcity for your community group.<br /><br /><span class='has-text-danger'>Please get in touch with us if you would like more information.</span>`,
     }, 
     adviceGroups: {
         title: "Advice & Support for Community Groups",
@@ -34,9 +28,7 @@ const services = {
     },
     catering: {
         title: "Catering",
-        content: `We can provide catering for meetings and other events. This can range from tea & biscuits to a full meal, with a range of buffet options in between. The emphasis is on healthy, freshly prepared food and we can provide vegetarian and vegan options. We will also try to meet any special requests for dishes which are not on one of our standard menus. Food can be delivered to other venues in North Manchester at no extra cost (subject to a minimum order size).
-        
-        Our Coffee Bar and Dining Room are available during the Centre’s normal opening times.`,
+        content: `We can provide catering for meetings and other events. This can range from tea & biscuits to a full meal, with a range of buffet options in between. The emphasis is on healthy, freshly prepared food and we can provide vegetarian and vegan options. We will also try to meet any special requests for dishes which are not on one of our standard menus. Food can be delivered to other venues in North Manchester at no extra cost (subject to a minimum order size).<br /><br />Our Coffee Bar and Dining Room are available during the Centre’s normal opening times.`,
     },
     allServices: [
         [{link:"/services/what's_on", title: "What's on", icon: 'question'}, {link:'/services/room_hire', title: 'Room hire', icon: 'home'}, {link:'/services/it_facilities', title: 'I.T. facilities', icon: 'desktop'}],
@@ -46,13 +38,13 @@ const services = {
 }
 
 
-router.use("/what's_on", (req, res) => res.status(200).render('temp', {sender: 'service', service: services.whatsOn}));
-router.use('/room_hire', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.roomHire}));
-router.use('/it_facilities', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.itFacilities}));
-router.use('/advice_for_groups', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.adviceGroups}));
-router.use('/advice_and_information_for_local_people', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.advicePeople}));
-router.use('/private_functions', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.privateFunctions}));
-router.use('/catering', (req, res) => res.status(200).render('temp', {sender: 'service', service: services.catering}));
+router.use("/what's_on", (req, res) => res.status(200).render('temp', {sender: 'service', module: services.whatsOn}));
+router.use('/room_hire', (req, res) => res.status(200).render('temp', {sender: 'service', module: services.roomHire}));
+router.use('/it_facilities', (req, res) => res.status(200).render('temp', {sender: 'service', module: services.itFacilities}));
+router.use('/advice_for_groups', (req, res) => res.status(200).render('temp', {sender: 'service', module: services.adviceGroups}));
+router.use('/advice_and_information_for_local_people', (req, res) => res.status(200).render('temp', {sender: 'service', module: services.advicePeople}));
+router.use('/private_functions', (req, res) => res.status(200).render('temp', {sender: 'service', module: services.privateFunctions}));
+router.use('/catering', (req, res) => res.status(200).render('temp', {sender: 'service', module: services.catering}));
 
 router.use('/', (req, res) => res.status(200).render('temp', {sender: 'services', services: services.allServices}));
 
