@@ -9,6 +9,6 @@ router.use('/services', services)
 router.use('/projects', projects)
 router.use('/contact', contact)
 router.use('/timetable', timetable)
-router.use('/', (req, res) => res.render('home'))
+router.use('/', (req, res) => res.render('temp', {sender: 'home'}))
 
 module.exports = router;
